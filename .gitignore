@@ -71,15 +71,7 @@ lib/*
 dump/*
 bin/*
 *.dump
-app/static/tastypie_swagger/
-app/static/suit/
-app/static/gis/
-app/static/geoposition/
-app/static/cms/
-app/static/admin/
-app/static/dump/
 .DS_Store
 dump/
 search_engine/*
-wholesale_productImage/
 bash_file.sh
