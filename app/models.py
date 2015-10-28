@@ -41,19 +41,8 @@ class Category(BaseModel):
 
 
 class Outlet(BaseModel):
-    Cafes=0
-    Restaurants=1
-    Salons_n_Spas=2
-    Fitness=3
-    Entertainment=4
-    Hotels=5
-    Others=6
-    CHOICES = ((Cafes, 'Cafes'),(Restaurants,'Restaurants'),(Salons_n_Spas,'Salons & Spas'),
-               (Fitness,'Fitness'),(Entertainment,'Entertainment'),(Hotels,'Hotels'),(Others,'Others'),)
-
     full_name=models.CharField(max_length=500)
     nick_name=models.CharField(max_length=100)
-    category= models.IntegerField(choices=CHOICES)
     cat =models.ForeignKey(Category,null=True,blank=False)
     brief=models.TextField()
     recommended_for=models.TextField()

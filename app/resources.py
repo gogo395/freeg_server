@@ -60,7 +60,7 @@ class OutletResource(ModelResource):
         excludes=['created_at','modified_at']
         filtering = {
             'id':ALL,
-            'category' : ALL,
+            'cat' : ALL,
         #     'email' :ALL,
         #     'username' :ALL
         }

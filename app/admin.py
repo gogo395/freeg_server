@@ -3,8 +3,8 @@ from app.models import Outlet, Location, UserProfile, Category
 
 
 class OutletAdmin(admin.ModelAdmin):
-    list_display = ('full_name','category','phone_no_primary',)
-    list_filter = ('category','location')
+    list_display = ('full_name','cat','phone_no_primary',)
+    list_filter = ('cat','location')
 
 admin.site.register(Outlet,OutletAdmin)
 admin.site.register(Location)
