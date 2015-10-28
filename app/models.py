@@ -34,23 +34,10 @@ class Location(BaseModel):
     def __unicode__(self):
         return self.area+", "+self.city
 
-class Wifi_Details(BaseModel):
-    wifI_ssid=models.CharField(max_length=500)
-    free_wifi_time=models.IntegerField(default=0,help_text='Minutes') #(minutes)
-    quoted_speed = models.FloatField(help_text="Mbps") #(mbps)
-    avg_realized_speed = models.FloatField(help_text="Mbps")#(mbps)
-    wiFi_performance = models.FloatField(help_text="%")#(%)
-    wiFi_login_method=models.TextField()
-    wiFi_provider=models.CharField(max_length=500)
-    wiFi_purchase=models.CharField(max_length=500,help_text='after free time') #()
-    wiFi_purchase_process=models.TextField()
-    ipass_enabled=models.BooleanField(default=False)
-    boingo_enabled=models.BooleanField(default=False)
-    wiFi_captive_portal_provider=models.CharField(max_length=500)
-    wiFi_login_steps=models.TextField()
-
+class Category(BaseModel):
+    name=models.CharField(max_length=50)
     def __unicode__(self):
-        return self.wifI_ssid+", "+self.wiFi_provider
+        return self.name
 
 
 class Outlet(BaseModel):
@@ -67,6 +54,7 @@ class Outlet(BaseModel):
     full_name=models.CharField(max_length=500)
     nick_name=models.CharField(max_length=100)
     category= models.IntegerField(choices=CHOICES)
+    cat =models.ForeignKey(Category,null=True,blank=False)
     brief=models.TextField()
     recommended_for=models.TextField()
     logo=models.CharField(max_length=100,null=True,blank=True)
@@ -84,8 +72,24 @@ class Outlet(BaseModel):
     rating=models.FloatField(default=0)
     no_of_tables=models.IntegerField(default=0)
     total_seating_capacity=models.IntegerField(default=0)
-    wifi = models.ManyToManyField(Wifi_Details)
+    # wifi = models.ManyToManyField(Wifi_Details)
 
+    wifI_ssid=models.CharField(max_length=500,default="")
+    free_wifi_time=models.IntegerField(default=0,help_text='Minutes') #(minutes)
+    quoted_speed = models.FloatField(help_text="Mbps",default=0) #(mbps)
+    avg_realized_speed = models.FloatField(help_text="Mbps",default=0)#(mbps)
+    wiFi_performance = models.FloatField(help_text="%",default=0)#(%)
+    wiFi_login_method=models.TextField(default="")
+    wiFi_provider=models.CharField(max_length=500,default="")
+    wiFi_purchase=models.CharField(max_length=500,help_text='after free time',default="") #()
+    wiFi_purchase_process=models.TextField(default="")
+    ipass_enabled=models.BooleanField(default=False)
+    boingo_enabled=models.BooleanField(default=False)
+    wiFi_captive_portal_provider=models.CharField(max_length=500,default="")
+    wiFi_login_steps=models.TextField(default="")
+
+    # def __unicode__(self):
+    #     return self.wifI_ssid+", "+self.wiFi_provider
     def __unicode__(self):
         return self.nick_name+", "+str(self.location)
 

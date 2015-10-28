@@ -65,20 +65,3 @@ class OutletResource(ModelResource):
         #     'username' :ALL
         }
 
-
-class WifiResource(ModelResource):
-
-    class Meta:
-        queryset = User.objects.all()
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get']
-        resource_name = "wifi_details"
-        include_resource_uri = False
-        authentication=Authentication()
-        authorization = Authorization()
-        # fields=['email','username',]
-        # filtering = {
-        #     'id' : ALL,
-        #     'email' :ALL,
-        #     'username' :ALL
-        # }
