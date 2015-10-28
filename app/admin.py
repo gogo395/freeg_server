@@ -1,5 +1,6 @@
 from django.contrib import admin
-from app.models import Outlet, Location, UserProfile
+from app.models import Outlet, Location, UserProfile, Category
+
 
 class OutletAdmin(admin.ModelAdmin):
     list_display = ('full_name','category','phone_no_primary',)
