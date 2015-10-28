@@ -7,4 +7,5 @@ class OutletAdmin(admin.ModelAdmin):
 
 admin.site.register(Outlet,OutletAdmin)
 admin.site.register(Location)
+admin.site.register(Category)
 admin.site.register(UserProfile)
