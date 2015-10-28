@@ -189,7 +189,7 @@ location_data = [['A I staff colony','400029'],
 ]
 
 for e in location_data:
-    l = Location.objects.filter(area=e[0], pin_code=e[1])
+    l = Location.objects.filter(area=e[0], city=city)
     if l:
         l = l[0]
     else:
