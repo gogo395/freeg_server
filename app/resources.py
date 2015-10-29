@@ -44,10 +44,22 @@ class LocationResource(ModelResource):
         #     'email' :ALL,
         #     'username' :ALL
         # }
-
+class CatResource(ModelResource):
+    class Meta:
+        queryset=Category.objects.all()
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get']
+        resource_name = "cat"
+        include_resource_uri = False
+        authentication=Authentication()
+        authorization = Authorization()
+        filtering = {
+            'id' : ALL,
+            'name':ALL,
+        }
 
 class OutletResource(ModelResource):
-
+    cat = fields.ToOneField(CatResource, 'cat', full=False, blank=True, null=True)
     class Meta:
         queryset = Outlet.objects.all()
         list_allowed_methods = ['get']
@@ -56,12 +68,9 @@ class OutletResource(ModelResource):
         include_resource_uri = False
         authentication=Authentication()
         authorization = Authorization()
-        # fields=['email','username',]
         excludes=['created_at','modified_at']
         filtering = {
             'id':ALL,
-            'cat' : ALL,
-        #     'email' :ALL,
-        #     'username' :ALL
+            'cat' : ALL_WITH_RELATIONS,
         }
 
