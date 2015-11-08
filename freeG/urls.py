@@ -8,6 +8,7 @@ v1_api = Api(api_name='v1')
 v1_api.register(resources.OutletResource())
 v1_api.register(resources.UserResource())
 v1_api.register(resources.LocationResource())
+v1_api.register(resources.CatResource())
 
 urlpatterns = patterns('',
     # Examples:
