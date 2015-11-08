@@ -46,7 +46,7 @@ class LocationResource(ModelResource):
         # }
 class CatResource(ModelResource):
     class Meta:
-        queryset=Category.objects.all()
+        queryset=Category.objects.filter(is_active=True).order_by('display_order')
         list_allowed_methods = ['get']
         detail_allowed_methods = ['get']
         resource_name = "cat"
