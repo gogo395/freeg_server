@@ -53,6 +53,8 @@ class CatResource(ModelResource):
         include_resource_uri = False
         authentication=Authentication()
         authorization = Authorization()
+        limit=100
+        excludes=['created_at','modified_at']
         filtering = {
             'id' : ALL,
             'name':ALL,
