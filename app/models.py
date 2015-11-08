@@ -36,6 +36,8 @@ class Location(BaseModel):
 
 class Category(BaseModel):
     name=models.CharField(max_length=50,unique=True)
+    is_active=models.BooleanField(is_active=False);
+    display_order=models.IntegerField(default=0)
     def __unicode__(self):
         return self.name
 
