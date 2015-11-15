@@ -61,7 +61,7 @@ class CatResource(ModelResource):
         }
 
 class OutletResource(ModelResource):
-    cat = fields.ToOneField(CatResource, 'cat', full=False, blank=True, null=True)
+    cat = fields.ToOneField(CatResource, 'cat', full=True, blank=True, null=True)
     class Meta:
         queryset = Outlet.objects.all()
         list_allowed_methods = ['get']
