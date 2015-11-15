@@ -64,7 +64,7 @@ class Outlet(BaseModel):
     no_of_tables=models.IntegerField(default=0)
     total_seating_capacity=models.IntegerField(default=0)
     # wifi = models.ManyToManyField(Wifi_Details)
-
+    special_info=models.TextField(default="",null=True,blank=True)
     wifI_ssid=models.CharField(max_length=500,default="")
     free_wifi_time=models.IntegerField(default=0,help_text='Minutes') #(minutes)
     quoted_speed = models.FloatField(help_text="Mbps",default=0) #(mbps)
