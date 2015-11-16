@@ -70,7 +70,7 @@ class OutletResource(ModelResource):
         include_resource_uri = False
         authentication=Authentication()
         authorization = Authorization()
-        excludes=['created_at','modified_at']
+        fields=['logo','outer_image','full_name','id','free_wifi_time','position','wiFi_login_method','full_address','phone_no_primary','cat','special_info']
         filtering = {
             'id':ALL,
             'cat' : ALL_WITH_RELATIONS,
