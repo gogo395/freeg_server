@@ -37,7 +37,7 @@ def add_hotspot(request):
 def add_review(request):
     outlet_id = request.POST.get('outlet_id')
     rating = request.POST.get('rating')
-    review = request.POST.get('review')
+    review = request.POST.get('reviews')
     outlet = Outlet.objects.get(pk=outlet_id)
     Review(outlet=outlet,rating=rating,review=review).save()
     return HttpResponse("done",content_type="application/json")
