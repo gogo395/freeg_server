@@ -10,7 +10,7 @@ class CatAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('outlet','rating',)
 class SuggestionAdmin(admin.ModelAdmin):
-    list_display = ('name','city',)
+    list_display = ('name','city','is_considered')
 admin.site.register(Outlet,OutletAdmin)
 admin.site.register(Location)
 admin.site.register(Category,CatAdmin)

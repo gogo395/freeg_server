@@ -96,6 +96,7 @@ class Suggestions(BaseModel):
     address=models.CharField(max_length=1000)
     city = models.CharField(max_length=100)
     comments=models.TextField()
+    is_considered=models.BooleanField(default=False)
     def __unicode__(self):
         return self.name+" "+self.city
 
