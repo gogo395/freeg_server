@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import Outlet, Location, UserProfile, Category, Suggestions
+from app.models import Outlet, Location, UserProfile, Category, Suggestions, Review
 
 
 class OutletAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ admin.site.register(Location)
 admin.site.register(Category,CatAdmin)
 admin.site.register(UserProfile)
 admin.site.register(Suggestions)
+admin.site.register(Review)

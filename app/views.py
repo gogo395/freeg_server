@@ -12,7 +12,7 @@ from django.shortcuts import render
 #     res = yourmodel.objects.filter(location__distance_lte=(ref_location, D(m=distance))).distance(ref_location).order_by('distance')
 from django.views.decorators.csrf import csrf_exempt
 import json
-from app.models import Suggestions
+from app.models import Suggestions, Review, Outlet
 
 
 @csrf_exempt
@@ -32,3 +32,12 @@ def add_hotspot(request):
         Suggestions(name=name,city=city,address=address,comments=comments).save()
     return HttpResponse("done",content_type="application/json")
 
+
+@csrf_exempt
+def add_review(request):
+    outlet_id = request.POST.get('outlet_id')
+    rating = request.POST.get('rating')
+    review = request.POST.get('review')
+    outlet = Outlet.objects.get(pk=outlet_id)
+    Review(outlet=outlet,rating=rating,review=review).save()
+    return HttpResponse("done",content_type="application/json")

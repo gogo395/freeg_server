@@ -98,3 +98,8 @@ class Suggestions(BaseModel):
     comments=models.TextField()
     def __unicode__(self):
         return self.name+" "+self.city
+
+class Review(BaseModel):
+    outlet = models.ForeignKey(Outlet)
+    rating = models.FloatField()
+    review = models.TextField(default="",null=True,blank=True)
