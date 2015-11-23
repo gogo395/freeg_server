@@ -74,5 +74,6 @@ class OutletResource(ModelResource):
         filtering = {
             'id':ALL,
             'cat' : ALL_WITH_RELATIONS,
+            'special_info':ALL,
         }
 
