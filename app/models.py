@@ -89,3 +89,12 @@ class Outlet(BaseModel):
         print self.position.json
         print self.co_ordinates
         super(Outlet, self).save(*args, **kwargs)
+
+
+class Suggestions(BaseModel):
+    name=models.CharField(max_length=500)
+    address=models.CharField(max_length=1000)
+    city = models.CharField(max_length=100)
+    comments=models.TextField()
+    def __unicode__(self):
+        return self.name+" "+self.city

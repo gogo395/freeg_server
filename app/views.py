@@ -12,6 +12,8 @@ from django.shortcuts import render
 #     res = yourmodel.objects.filter(location__distance_lte=(ref_location, D(m=distance))).distance(ref_location).order_by('distance')
 from django.views.decorators.csrf import csrf_exempt
 import json
+from app.models import Suggestions
+
 
 @csrf_exempt
 def get_settings(request):
@@ -19,3 +21,14 @@ def get_settings(request):
     data['FAQ']="Q1: alsdjf opajelkrjalnv ?\nAns:ajsofijwnbfvolknwkefnipn skdfj pwoenrpkwen . \nQ2:aoiwhefnw owihef woewmekrjgpiw n? \nAns: kajspfeiwgnb pwjepk nwpekwe mgpwkenbp."
     data=json.dumps(data)
     return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def add_hotspot(request):
+    name= request.POST.get('name')
+    address= request.POST.get('address')
+    city= request.POST.get('city')
+    comments= request.POST.get('comments')
+    if not Suggestions.objects.filter(name=name,city=city,address=address):
+        Suggestions(name=name,city=city,address=address,comments=comments).save()
+    return HttpResponse("done",content_type="application/json")
+

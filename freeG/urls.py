@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'freeG.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^api/v1/add_hotspot', views.add_hotspot, name='add_hotspot'),
     url(r'^api/v1/get_settings$', views.get_settings, name='get_settings'),
     (r'^api/', include(v1_api.urls)),
     url(r'^admin/', include(admin.site.urls)),
