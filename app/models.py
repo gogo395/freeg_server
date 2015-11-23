@@ -103,3 +103,6 @@ class Review(BaseModel):
     outlet = models.ForeignKey(Outlet)
     rating = models.FloatField()
     review = models.TextField(default="",null=True,blank=True)
+    def __unicode__(self):
+        return self.outlet.full_name
+
