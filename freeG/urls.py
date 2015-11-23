@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from tastypie.api import Api
 from app import resources
+from app import views
 
 v1_api = Api(api_name='v1')
 
@@ -14,7 +15,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'freeG.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^api/v1/get_settings$', views.get_settings, name='get_settings'),
     (r'^api/', include(v1_api.urls)),
-    (r'^api/', include('app.android_urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

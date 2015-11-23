@@ -7,6 +7,6 @@ from app import views
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^v1/get_settings$', views.get_settings, name='get_settings'),
+
 
 )
