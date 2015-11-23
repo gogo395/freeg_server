@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'freeG.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     (r'^api/', include(v1_api.urls)),
+    (r'^api/', include('app.android_urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
