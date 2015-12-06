@@ -18,7 +18,7 @@ from app.models import Suggestions, Review, Outlet, QnA
 @csrf_exempt
 def get_settings(request):
     data={}
-    data['FAQ']="Q1: alsdjf opajelkrjalnv ?\nAns:ajsofijwnbfvolknwkefnipn skdfj pwoenrpkwen . \nQ2:aoiwhefnw owihef woewmekrjgpiw n? \nAns: kajspfeiwgnb pwjepk nwpekwe mgpwkenbp."
+    # data['FAQ']="Q1: alsdjf opajelkrjalnv ?\nAns:ajsofijwnbfvolknwkefnipn skdfj pwoenrpkwen . \nQ2:aoiwhefnw owihef woewmekrjgpiw n? \nAns: kajspfeiwgnb pwjepk nwpekwe mgpwkenbp."
     data=json.dumps(data)
     return HttpResponse(data, content_type='application/json')
 

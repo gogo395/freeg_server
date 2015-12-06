@@ -10,6 +10,7 @@ v1_api.register(resources.OutletResource())
 v1_api.register(resources.UserResource())
 v1_api.register(resources.LocationResource())
 v1_api.register(resources.CatResource())
+v1_api.register(resources.QnAResource())
 
 urlpatterns = patterns('',
     # Examples:
