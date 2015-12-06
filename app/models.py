@@ -111,5 +111,6 @@ class QnA(BaseModel):
     question = models.TextField()
     answer = models.TextField()
     is_active = models.BooleanField(default=False)
+    display_order = models.IntegerField(default=0)
     def __unicode__(self):
         return self.question

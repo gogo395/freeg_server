@@ -80,7 +80,7 @@ class OutletResource(ModelResource):
 
 class QnAResource(ModelResource):
     class Meta:
-        queryset = QnA.objects.filter(is_active=True)
+        queryset = QnA.objects.filter(is_active=True).order_by('display_order')
         list_allowed_methods = ['get']
         detail_allowed_methods = ['get']
         resource_name = "faq"
