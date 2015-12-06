@@ -107,3 +107,9 @@ class Review(BaseModel):
     def __unicode__(self):
         return self.outlet.full_name
 
+class QnA(BaseModel):
+    question = models.TextField()
+    answer = models.TextField()
+    is_active = models.BooleanField(default=False)
+    def __unicode__(self):
+        return self.question

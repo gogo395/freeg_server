@@ -78,3 +78,16 @@ class OutletResource(ModelResource):
             'special_info':ALL,
         }
 
+class QnAResource(ModelResource):
+    class Meta:
+        queryset = Outlet.objects.all()
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get']
+        resource_name = "faq"
+        include_resource_uri = False
+        authentication = Authentication()
+        authorization = Authorization()
+        limit=100
+        excludes=['created_at','modified_at']
+
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import Outlet, Location, UserProfile, Category, Suggestions, Review
+from app.models import Outlet, Location, UserProfile, Category, Suggestions, Review, QnA
 
 
 class OutletAdmin(admin.ModelAdmin):
@@ -11,9 +11,11 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ('outlet','rating',)
 class SuggestionAdmin(admin.ModelAdmin):
     list_display = ('name','city','is_considered')
+
 admin.site.register(Outlet,OutletAdmin)
 admin.site.register(Location)
 admin.site.register(Category,CatAdmin)
 admin.site.register(UserProfile)
 admin.site.register(Suggestions,SuggestionAdmin)
 admin.site.register(Review,ReviewAdmin)
+admin.site.register(QnA)

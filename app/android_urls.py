@@ -7,6 +7,6 @@ from app import views
 
 urlpatterns = patterns('',
     # Examples:
-
+    # url(r'^update_status/$', views.update_status, name='update_status'),
 
 )

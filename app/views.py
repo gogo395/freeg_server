@@ -12,7 +12,7 @@ from django.shortcuts import render
 #     res = yourmodel.objects.filter(location__distance_lte=(ref_location, D(m=distance))).distance(ref_location).order_by('distance')
 from django.views.decorators.csrf import csrf_exempt
 import json
-from app.models import Suggestions, Review, Outlet
+from app.models import Suggestions, Review, Outlet, QnA
 
 
 @csrf_exempt
@@ -41,3 +41,5 @@ def add_review(request):
     outlet = Outlet.objects.get(pk=outlet_id)
     Review(outlet=outlet,rating=rating,review=review).save()
     return HttpResponse("done",content_type="application/json")
+
+
