@@ -88,6 +88,6 @@ class QnAResource(ModelResource):
         authentication = Authentication()
         authorization = Authorization()
         limit=100
-        excludes=['created_at','modified_at']
+        excludes=['created_at','modified_at','id','is_actiev']
 
 
